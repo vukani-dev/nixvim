@@ -27,6 +27,7 @@
         nixvim'.makeNixvimWithModule {
           inherit pkgs;
           module = import config {inherit pkgs;};
+
         };
     in {
       default = mkConfig ./configs/default.nix;

@@ -13,7 +13,7 @@
     };
     lsp.servers = {
       svelte.enable = true;
-      ts-ls = {
+      ts_ls = {
         enable = true;
         filetypes = [
           "javascript"
