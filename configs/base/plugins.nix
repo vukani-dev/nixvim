@@ -56,7 +56,8 @@
     noice.enable = true;
     notify.enable = true;
     nvim-autopairs.enable = true;
-    nvim-colorizer.enable = true;
+    colorizer.enable = true;
+    # nvim-colorizer.enable = true;
     oil = {
       enable = true;
       settings = {
