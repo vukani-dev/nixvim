@@ -3,6 +3,7 @@
     auto-save.enable = true;
     which-key.enable = true;
     comment.enable = true;
+    avante.enable = true;
     gitsigns = {
       enable = true;
       settings = {
