@@ -25,13 +25,13 @@
       };
     };
 
-    harpoon = {
-      enable = true;
-      saveOnToggle = true;
-      saveOnChange = true;
-      enterOnSendcmd = false;
-      markBranch = true;
-    };
+    # harpoon = {
+    #   enable = true;
+    #   saveOnToggle = true;
+    #   saveOnChange = true;
+    #   enterOnSendcmd = false;
+    #   markBranch = true;
+    # };
 
     hop.enable = true;
     illuminate.enable = true;
@@ -88,7 +88,7 @@
     web-devicons.enable = true;
   };
   extraConfigLua = ''
-    require("telescope").load_extension('harpoon')
+    -- require("telescope").load_extension('harpoon')
     require("notify").setup({
       background_colour = "#000000",
     })

@@ -167,11 +167,11 @@
           icon = "󰉓";
           desc = "List Workspace Folders";
         }
-        {
-          __unkeyed-1 = "<leader>h";
-          icon = "󱡅";
-          desc = "Harpoon";
-        }
+        # {
+        #   __unkeyed-1 = "<leader>h";
+        #   icon = "󱡅";
+        #   desc = "Harpoon";
+        # }
       ];
     };
   };
@@ -198,27 +198,26 @@
     }
     #CLipboard
 
-      {
-        key = "<leader>y";
-        mode = ["n" "v"];
-        action = "\"+y";
-        options = {
-          silent = true;
-          noremap = true;
-          desc = "[y]ank to system clipboard";
-        };
-      }
-      {
-        key = "<leader>Y";
-        mode = "n";
-        action = "\"+Y";
-        options = {
-          silent = true;
-          noremap = true;
-          desc = "[Y]ank line to system clipboard";
-        };
-      }
-
+    {
+      key = "<leader>y";
+      mode = ["n" "v"];
+      action = "\"+y";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[y]ank to system clipboard";
+      };
+    }
+    {
+      key = "<leader>Y";
+      mode = "n";
+      action = "\"+Y";
+      options = {
+        silent = true;
+        noremap = true;
+        desc = "[Y]ank line to system clipboard";
+      };
+    }
 
     # Activate Oil
     {
@@ -236,38 +235,37 @@
       options.desc = "Hop Char 1";
     }
 
-
     # Harpoon commands
-    {
-      mode = "n";
-      key = "<leader>ha";
-      action = "<CMD>lua require('harpoon.mark').add_file()<CR>";
-      options.desc = "Add File";
-    }
-    {
-      mode = "n";
-      key = "<leader>hn";
-      action = "<CMD>lua require('harpoon.ui').nav_next()<CR>";
-      options.desc = "Next File";
-    }
-    {
-      mode = "n";
-      key = "<leader>hp";
-      action = "<CMD>lua require('harpoon.ui').nav_prev()<CR>";
-      options.desc = "Previous File";
-    }
-    {
-      mode = "n";
-      key = "<leader>hm";
-      action = "<CMD>Telescope harpoon marks<CR>";
-      options.desc = "Telescope Menu";
-    }
-    {
-      mode = "n";
-      key = "<leader>hq";
-      action = "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>";
-      options.desc = "Quick Menu";
-    }
+    # {
+    #   mode = "n";
+    #   key = "<leader>ha";
+    #   action = "<CMD>lua require('harpoon.mark').add_file()<CR>";
+    #   options.desc = "Add File";
+    # }
+    # {
+    #   mode = "n";
+    #   key = "<leader>hn";
+    #   action = "<CMD>lua require('harpoon.ui').nav_next()<CR>";
+    #   options.desc = "Next File";
+    # }
+    # {
+    #   mode = "n";
+    #   key = "<leader>hp";
+    #   action = "<CMD>lua require('harpoon.ui').nav_prev()<CR>";
+    #   options.desc = "Previous File";
+    # }
+    # {
+    #   mode = "n";
+    #   key = "<leader>hm";
+    #   action = "<CMD>Telescope harpoon marks<CR>";
+    #   options.desc = "Telescope Menu";
+    # }
+    # {
+    #   mode = "n";
+    #   key = "<leader>hq";
+    #   action = "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>";
+    #   options.desc = "Quick Menu";
+    # }
 
     # FZF-Lua custom commands -- I want to limit to current directory
     {
@@ -283,7 +281,6 @@
       options.desc = "Recent Files";
     }
 
-  
     # LSP Actions
     {
       mode = "n";
@@ -475,6 +472,5 @@
       action = "<CMD>BufferLineCloseLeft<CR>";
       options.desc = "Delete Buffers to the Left";
     }
-
   ];
 }
