@@ -56,6 +56,10 @@
 
     noice.enable = true;
     notify.enable = true;
+    snacks = {
+      enable = true;
+      settings.bigfile.enabled = true;
+    };
     nvim-autopairs.enable = true;
     colorizer.enable = true;
     # nvim-colorizer.enable = true;
@@ -79,12 +83,12 @@
     treesitter = {
       enable = true;
 
-      folding = false;
+      folding.enable = false;
       settings.indent.enable = true;
       settings.highlight.enable = true;
     };
 
-    vim-surround.enable = true;
+    # Using mini.surround instead of vim-surround (already enabled above)
     web-devicons.enable = true;
   };
   extraConfigLua = ''

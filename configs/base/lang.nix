@@ -142,11 +142,13 @@ in
         enable = true;
         sources.formatting = {
           alejandra.enable = true;
-          black.enable = true;
           hclfmt.enable = true;
           just.enable = true;
           opentofu_fmt.enable = true;
-          prettier.enable = true;
+          prettier = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
           sqlformat.enable = true;
           yamlfmt.enable = true;
           stylua.enable = true;
@@ -172,7 +174,7 @@ in
             lua = ["stylua"];
             markdown = ["prettier"];
             nix = ["alejandra"];
-            python = ["black"];
+            python = ["ruff_format"];
             ruby = ["rubyfmt"];
             rust = ["rustfmt"];
             svelte = ["prettier"];
@@ -242,24 +244,8 @@ in
           helm_ls.enable = true;
           jsonls.enable = true;
           marksman.enable = true;
-          nil_ls.enable = true;
           nixd.enable = true;
-          pylsp = {
-            enable = true;
-            settings.plugins = {
-              black.enabled = true;
-              flake8.enabled = true;
-              isort.enabled = true;
-              jedi.enabled = true;
-              mccabe.enabled = true;
-              pycodestyle.enabled = true;
-              pydocstyle.enabled = true;
-              pyflakes.enabled = true;
-              pylint.enabled = true;
-              rope.enabled = true;
-              yapf.enabled = true;
-            };
-          };
+          ruff.enable = true;  # Fast Python linter/formatter (replaces pylsp + many plugins)
           svelte.enable = true;
           taplo.enable = true;
           terraformls.enable = true;
