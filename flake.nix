@@ -19,22 +19,12 @@
   in {
     packages = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      nixvimLib = nixvim.lib.${system};
       nixvim' = nixvim.legacyPackages.${system};
-
-      # Function to create a specialized config
-      mkConfig = config:
-        nixvim'.makeNixvimWithModule {
-          inherit pkgs;
-          module = import config {inherit pkgs;};
-
-        };
     in {
-      default = mkConfig ./configs/default.nix;
-      iac = mkConfig ./configs/iac;
-      rust = mkConfig ./configs/rust;
-      python = mkConfig ./configs/python;
-      web = mkConfig ./configs/web;
+      default = nixvim'.makeNixvimWithModule {
+        inherit pkgs;
+        module = import ./configs {inherit pkgs;};
+      };
     });
   };
 }

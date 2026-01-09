@@ -142,6 +142,7 @@ in
         enable = true;
         sources.formatting = {
           alejandra.enable = true;
+          black.enable = true;
           hclfmt.enable = true;
           just.enable = true;
           opentofu_fmt.enable = true;
@@ -164,14 +165,21 @@ in
           formatters_by_ft = {
             css = ["prettier"];
             html = ["prettier"];
+            javascript = ["prettier"];
+            javascriptreact = ["prettier"];
             json = ["prettier"];
             just = ["just"];
             lua = ["stylua"];
             markdown = ["prettier"];
             nix = ["alejandra"];
+            python = ["black"];
             ruby = ["rubyfmt"];
+            rust = ["rustfmt"];
+            svelte = ["prettier"];
             terraform = ["tofu_fmt"];
             tf = ["tofu_fmt"];
+            typescript = ["prettier"];
+            typescriptreact = ["prettier"];
             yaml = ["yamlfmt"];
           };
         };
@@ -229,12 +237,84 @@ in
         #   end
         # '';
         servers = {
+          dockerls.enable = true;
+          eslint.enable = true;
+          helm_ls.enable = true;
           jsonls.enable = true;
           marksman.enable = true;
           nil_ls.enable = true;
           nixd.enable = true;
-          yamlls.enable = true;
+          pylsp = {
+            enable = true;
+            settings.plugins = {
+              black.enabled = true;
+              flake8.enabled = true;
+              isort.enabled = true;
+              jedi.enabled = true;
+              mccabe.enabled = true;
+              pycodestyle.enabled = true;
+              pydocstyle.enabled = true;
+              pyflakes.enabled = true;
+              pylint.enabled = true;
+              rope.enabled = true;
+              yapf.enabled = true;
+            };
+          };
+          svelte.enable = true;
           taplo.enable = true;
+          terraformls.enable = true;
+          ts_ls = {
+            enable = true;
+            filetypes = [
+              "javascript"
+              "javascriptreact"
+              "typescript"
+              "typescriptreact"
+            ];
+            extraOptions = {
+              settings = {
+                javascript = {
+                  inlayHints = {
+                    includeInlayEnumMemberValueHints = true;
+                    includeInlayFunctionLikeReturnTypeHints = true;
+                    includeInlayFunctionParameterTypeHints = true;
+                    includeInlayParameterNameHints = "all";
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                    includeInlayPropertyDeclarationTypeHints = true;
+                    includeInlayVariableTypeHints = true;
+                  };
+                };
+                typescript = {
+                  inlayHints = {
+                    includeInlayEnumMemberValueHints = true;
+                    includeInlayFunctionLikeReturnTypeHints = true;
+                    includeInlayFunctionParameterTypeHints = true;
+                    includeInlayParameterNameHints = "all";
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                    includeInlayPropertyDeclarationTypeHints = true;
+                    includeInlayVariableTypeHints = true;
+                  };
+                };
+              };
+            };
+          };
+          yamlls.enable = true;
+        };
+      };
+
+      rustaceanvim = {
+        enable = true;
+        settings = {
+          tools.enable_clippy = true;
+          server = {
+            default_settings = {
+              inlayHints = {lifetimeElisionHints = {enable = "always";};};
+              rust-analyzer = {
+                cargo = {allFeatures = true;};
+                check = {command = "clippy";};
+              };
+            };
+          };
         };
       };
 
