@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins = {
     conform-nvim = {
       settings = {
@@ -53,6 +53,7 @@
     none-ls.sources.formatting.prettier = {
       enable = true;
       disableTsServerFormatter = false;
+      package = pkgs.prettier;
     };
   };
 }

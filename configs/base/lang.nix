@@ -145,7 +145,10 @@ in
           hclfmt.enable = true;
           just.enable = true;
           opentofu_fmt.enable = true;
-          prettier.enable = true;
+          prettier = {
+            enable = true;
+            package = pkgs.prettier;
+          };
           sqlformat.enable = true;
           yamlfmt.enable = true;
           stylua.enable = true;
